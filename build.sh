@@ -94,4 +94,4 @@ g++ $COMPILE_VERSION $COMPILE_FLAGS $COMPILE_LIBRARIES $PATHS_O -o $PATH_EXE
 echo "Finished!"
 echo "-----"
 
-$PATH_EXE
+$PATH_EXE -test hello -example "hello, world!"
