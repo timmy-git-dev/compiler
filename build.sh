@@ -12,6 +12,7 @@ PATH_CMN_SRC="$PATH_CMN/src"
 PATH_CMN_INC="$PATH_CMN/inc"
 PATH_BIN="$PATH_PWD/bin"
 PATH_OBJ="$PATH_BIN/obj"
+PATH_CMN_OBJ="$PATH_OBJ/compiler"
 PATH_EXE="$PATH_BIN/compiler"
 
 # Set compile types.
@@ -61,14 +62,14 @@ echo "Compiling objects..."
 PATHS_CPP=$(find "$PATH_CMN_SRC" -type f -name "*.cpp")
 for PATH_CMN_SRC_CPP in $PATHS_CPP; do
     PATH_REL_CPP="${PATH_CMN_SRC_CPP#$PATH_CMN_SRC}"
-    PATH_OBJ_O="$PATH_OBJ${PATH_REL_CPP%.cpp}.o"
-    PATH_SUB_OBJ="${PATH_OBJ_O%/*}"
+    PATH_CMN_OBJ_O="$PATH_CMN_OBJ${PATH_REL_CPP%.cpp}.o"
+    PATH_SUB_OBJ="${PATH_CMN_OBJ_O%/*}"
 
     echo "  Compiling $PATH_REL_CPP..."
 
     mkdir -p "$PATH_SUB_OBJ"
 
-    g++ $COMPILE_VERSION $COMPILE_FLAGS $COMPILE_LIBRARIES -I$PATH_CMN_INC -c "$PATH_CMN_SRC_CPP" -o "$PATH_OBJ_O"
+    g++ $COMPILE_VERSION $COMPILE_FLAGS $COMPILE_LIBRARIES -I$PATH_CMN_INC -c "$PATH_CMN_SRC_CPP" -o "$PATH_CMN_OBJ_O"
 done
 
 PATHS_CPP=$(find "$PATH_SRC" -type f -name "*.cpp")

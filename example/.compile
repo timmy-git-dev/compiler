@@ -1,0 +1,31 @@
+[OUTPUT]    <LINUX>     "bin/test"
+[OUTPUT]    <WINDOWS>   "bin/test.exe"
+
+[COMPILER]  <LINUX>     "g++"
+[COMPILER]  <WINDOWS>   "x86_64-w64-mingw32-g++"
+
+[VERSION]               "c++23"
+
+[BINARY]                "bin/obj/"
+
+[SOURCE]                "src/"
+[INCLUDE]               "inc/"
+
+[LIBRARY]               "dl"
+
+[WARNING]               "all"
+[WARNING]               "extra"
+[WARNING]               "pedantic"
+
+[FLAG]                  "fPIC"
+[FLAG]                  "shared"
+
+[FLAG]      <DEBUG>     "g3"
+[FLAG]      <DEBUG>     "O0"
+[FLAG]      <DEBUG>     "fsanitize=address"
+[FLAG]      <DEBUG>     "fno-inline"
+[FLAG]      <DEBUG>     "fno-omit-frame-pointer"
+
+[FLAG]      <RELEASE>   "O3"
+[FLAG]      <RELEASE>   "DNDEBUG"
+[FLAG]      <RELEASE>   "flto"
